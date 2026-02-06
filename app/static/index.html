@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plains Cree Emergency TTS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Plains Cree Emergency TTS</h1>
+        <p>
+          Generate Plains Cree emergency audio using MMS-TTS. Provide optional CAP metadata
+          to keep alerts aligned with Common Alerting Protocol fields.
+        </p>
+      </header>
+
+      <section class="panel">
+        <label for="text">Alert message (Plains Cree or English fallback)</label>
+        <textarea id="text" rows="4" placeholder="tânisi! wâpac awâsisak..." required></textarea>
+
+        <div class="row">
+          <div>
+            <label for="language">MMS language code</label>
+            <input id="language" value="crk" />
+          </div>
+          <div>
+            <label for="headline">CAP headline</label>
+            <input id="headline" placeholder="Extreme cold warning" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="urgency">Urgency</label>
+            <select id="urgency">
+              <option>Immediate</option>
+              <option>Expected</option>
+              <option>Future</option>
+            </select>
+          </div>
+          <div>
+            <label for="severity">Severity</label>
+            <select id="severity">
+              <option>Extreme</option>
+              <option>Severe</option>
+              <option>Moderate</option>
+            </select>
+          </div>
+          <div>
+            <label for="certainty">Certainty</label>
+            <select id="certainty">
+              <option>Observed</option>
+              <option>Likely</option>
+              <option>Possible</option>
+            </select>
+          </div>
+        </div>
+
+        <label for="instruction">Instructions</label>
+        <textarea id="instruction" rows="3" placeholder="Move indoors, keep warm."></textarea>
+
+        <button id="generate">Generate Audio</button>
+      </section>
+
+      <section class="panel">
+        <h2>Generated audio</h2>
+        <audio id="player" controls></audio>
+        <pre id="cap-output"></pre>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
